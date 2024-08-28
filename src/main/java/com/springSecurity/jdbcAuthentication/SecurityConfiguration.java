@@ -21,9 +21,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication()
-			.dataSource(dataSource);
+		.dataSource(dataSource);
 	}
-
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests() //Mentions we need to authorize all requests
@@ -33,7 +33,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		.and().formLogin();
 		}
 	
-
 	@Bean
 	public PasswordEncoder getPasswordEncoder() {
 		return NoOpPasswordEncoder.getInstance();
